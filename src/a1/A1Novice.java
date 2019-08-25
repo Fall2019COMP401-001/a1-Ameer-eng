@@ -8,7 +8,43 @@ public class A1Novice {
 		
 		Scanner scan = new Scanner(System.in);
 
-		// Your code follows here.
+		//Get input for number of customers
+		int numCustomers = scan.nextInt();
 		
+		//Create arrays to store the first names and last names of customers and the total cost of their items.
+		String[] firstNames = new String[numCustomers];
+		String[] lastNames = new String[numCustomers];
+		double[] totalCosts = new double[numCustomers];
+		
+		//Record the names of each customer and calculate how much they spent
+		for(int i = 0; i < numCustomers; i++) {
+			firstNames[i] = scan.next();
+			lastNames[i] = scan.next();
+			int numItems = scan.nextInt();
+			
+			//Holds the names of the items (this array is never accessed in this program)
+			String[] itemsBought = new String[numItems];
+			
+			//Variable to store the total cost of the items purchased by the customer.
+			double totalCost = 0;
+			
+			//Loop through each item the customer bought and add its cost to the total.
+			for(int j = 0; j < numItems; j++) {
+				int quantity = scan.nextInt();
+				itemsBought[j] = scan.next();
+				double price = scan.nextDouble();
+				
+				totalCost += quantity * price;
+			}
+			totalCosts[i] = totalCost;
+		}
+		
+		//Input reading is done so the scanner is closed.
+		scan.close();
+		
+		//Print results with the total cost for each customer rounded to two decimal places.
+		for (int i = 0; i < numCustomers; i++) {
+			System.out.println(firstNames[i].charAt(0) + ". " + lastNames[i] + " " + String.format("%.2f", totalCosts[i]));
+		}
 	}
 }
