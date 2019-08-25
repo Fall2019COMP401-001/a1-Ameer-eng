@@ -44,7 +44,7 @@ public class A1Novice {
 		
 		//Print results with the total cost for each customer rounded to two decimal places.
 		for (int i = 0; i < numCustomers; i++) {
-			System.out.println(firstNames[i].charAt(0) + ". " + lastNames[i] + " " + String.format("%.2f", totalCosts[i]));
+			System.out.println(firstNames[i].charAt(0) + ". " + lastNames[i] + ": " + String.format("%.2f", totalCosts[i]));
 		}
 	}
 }
