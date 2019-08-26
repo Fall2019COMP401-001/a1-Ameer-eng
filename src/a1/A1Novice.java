@@ -16,19 +16,19 @@ public class A1Novice {
 		String[] lastNames = new String[numCustomers];
 		double[] totalCosts = new double[numCustomers];
 		
-		//Record the names of each customer and calculate how much they spent
+		//Record the names of each customer, the items they bought, and calculate how much they spent
 		for(int i = 0; i < numCustomers; i++) {
 			firstNames[i] = scan.next();
 			lastNames[i] = scan.next();
 			int numItems = scan.nextInt();
 			
-			//Holds the names of the items (this array is never accessed in this program)
+			//Holds the names of the items that the customer bought.
 			String[] itemsBought = new String[numItems];
 			
 			//Variable to store the total cost of the items purchased by the customer.
 			double totalCost = 0;
 			
-			//Loop through each item the customer bought and add its cost to the total.
+			//Loop through each item the customer bought, record its name and add its cost to the total.
 			for(int j = 0; j < numItems; j++) {
 				int quantity = scan.nextInt();
 				itemsBought[j] = scan.next();
@@ -36,6 +36,8 @@ public class A1Novice {
 				
 				totalCost += quantity * price;
 			}
+			
+			//Record the total spent by the customer in the totalCosts array.
 			totalCosts[i] = totalCost;
 		}
 		

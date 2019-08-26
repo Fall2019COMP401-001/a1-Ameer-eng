@@ -15,7 +15,7 @@ public class A1Adept {
 		String[] itemNames = new String[numItems];
 		double[] itemPrices = new double[numItems];
 		
-		//Populate the arrays with information about the items
+		//Populate the arrays with the names and prices of the items
 		for(int i = 0; i < numItems; i++) {
 			itemNames[i] = scan.next();
 			itemPrices[i] = scan.nextDouble();
@@ -33,7 +33,7 @@ public class A1Adept {
 				
 		//Loop through each customer
 		for(int i = 0; i < numCustomers; i++) {
-			//Populate the arrays with information about the customers
+			//Populate the arrays with first and last names of the customers
 			firstNames[i] = scan.next();
 			lastNames[i] = scan.next();
 			
@@ -43,12 +43,15 @@ public class A1Adept {
 			//variable to hold total money spent by this customer
 			double totalCost = 0; 
 			
+			//Loop through each item the customer bought
 			for(int j = 0; j < numBought; j++) {
 				//Update the total cost by adding the contribution of this item to the total cost
 				int quantity = scan.nextInt();
 				String itemName = scan.next();
+				
 				//Find the price of the item by referencing the itemPrices array
 				double itemCost = itemPrices[indexOf(itemName, itemNames)];
+				
 				totalCost += quantity * itemCost;
 			}
 			
@@ -66,7 +69,7 @@ public class A1Adept {
 		int indexBiggest = findIndexMax(totalSpent);
 		int indexSmallest = findIndexMin(totalSpent);
 		
-		//calculate and round the max spent, the min. spent, and the average spent by the customers.
+		//calculate and round to 2 decimal places the max spent, the min. spent, and the average spent by the customers.
 		String avgSpent = String.format("%.2f", findAvg(totalSpent));
 		String maxSpent = String.format("%.2f", totalSpent[indexBiggest]);
 		String minSpent = String.format("%.2f", totalSpent[indexSmallest]);
@@ -85,6 +88,7 @@ public class A1Adept {
 		 * Output: Integer index of the maximum value
 		 * 
 		 * Preconditions: Input array must not be null and must contain at least one value.
+		 * If two values tie for being the maximum then the smaller index is returned.
 		 */
 		static int findIndexMax(double[] a) {
 			//Initialize current index of max value to be at index 0
@@ -108,6 +112,7 @@ public class A1Adept {
 		 * Output: Integer index of the minimum value
 		 * 
 		 * Preconditions: Input array must not be null and must contain at least one value.
+		 * If two values tie for being the minimum then the smaller index is returned.
 		 */
 		static int findIndexMin(double[] a) {
 			//Initialize current index of min value to be at index 0
