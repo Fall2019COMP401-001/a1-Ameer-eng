@@ -79,8 +79,7 @@ public static void main(String[] args) {
 			}
 			
 			//Put the money spent by the customer into the array.
-			totalSpent[i] = totalCost;
-			
+			totalSpent[i] = totalCost;			
 		}
 		
 		//Input is finished
